@@ -1,7 +1,6 @@
 import argparse
 import os
-from ember import features
-import ember
+import uak
 import sys
 import subprocess
 
@@ -27,11 +26,11 @@ def main():
 	rows = int(resut.split(' ')[0])
 
 	clear(args.datadir)
-	ember.create_vectorized_features(args.datadir, rows)
+	uak.create_vectorized_features(args.datadir, rows)
 
 	# Train and save model
 	print("Training LightGBM model")
-	lgbm_model = ember.train_model(args.datadir, rows)
+	lgbm_model = uak.train_model(args.datadir, rows)
 	lgbm_model.save_model(os.path.join(args.datadir, "model.txt")) 
 
 	# cross validation

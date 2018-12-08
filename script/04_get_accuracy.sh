@@ -1,1 +1,1 @@
-python ../04_get_accuarcy.py -c /home/choi/Downloads/emberoutput/predict_with_label.csv -o ~/Downloads
+python ../04_get_accuarcy.py -l ~/Downloads/Test_final1_re.csv -c ../test/result.csv

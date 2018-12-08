@@ -2,7 +2,7 @@
 import os
 import argparse
 import sys
-from ember import PEFeatureExtractor
+from uak import PEFeatureExtractor
 import tqdm
 import jsonlines
 import pandas as pd
@@ -32,10 +32,9 @@ def main():
     with jsonlines.open(os.path.join(args.output, "features.jsonl"), 'w') as f:
         for _file in tqdm.tqdm(os.listdir(args.dataset)):
             path = os.path.join(args.dataset, _file)
-            binary = open(path, 'rb').read()
 
             try:
-                feature = extractor.raw_features(binary)
+                feature = extractor.raw_features(path)
                 feature.update({"sha256": _file}) #hash
                 feature.update({"label" : ExtractLabel(_file)}) #label
                 f.write(feature)        

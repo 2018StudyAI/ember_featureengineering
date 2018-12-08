@@ -1,1 +1,1 @@
-python ../02_train.py -d ~/Downloads/emberoutput 
+python ../02_train.py -d ../test
